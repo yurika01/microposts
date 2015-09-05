@@ -1,0 +1,22 @@
+<h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+     follower一覧
+    </div>
+
+
+    <div class="panel-body">
+         <% @follower_users.each do |follower_user| %>
+         <div>
+         <span class="label label-info"><%= follower_user.name %></span>
+         <%= gravatar_for (follower_user) %>
+         (<%= link_to "follower_user" , followers_user_path(follower_user) %>)
+         </br>
+         </div>
+         <% end %>
+    </div>
+</div>

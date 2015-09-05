@@ -3,6 +3,18 @@
     <%= @user.name %>
 </h1>
 
-<% @following_users.each do |following_user| %>
-    <%= following_user.name %>
-<% end %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        following一覧
+    </div>
+
+    <div class="panel-body">
+        <% @following_users.each do |following_user| %>
+        <div>
+        <span class="label label-info"><%= following_user.name %></span>
+        <%= gravatar_for (following_user) %>
+        (<%= link_to "following_user" , followings_user_path(following_user) %>)
+        </div>
+        <% end %>
+    </div>
+</div>
