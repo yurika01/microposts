@@ -1,6 +1,10 @@
 <h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
+    <% if @user.avatar %> 
+                    <%= image_tag(@user.avatar.url, alt: @user.name, class: "gravatar") %>
+                <% else %>
+                    <%= gravatar_for @user %>
+                <% end %>
+                <%= @user.name %>
 </h1>
 
 <div class="panel panel-default">
