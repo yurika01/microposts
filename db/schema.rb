@@ -43,7 +43,17 @@ ActiveRecord::Schema.define(version: 20150906002406) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "profile"
+    t.string   "location"
+    t.string   "avatar"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
