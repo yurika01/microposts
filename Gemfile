@@ -46,6 +46,6 @@ group :development, :test do
   gem 'spring'
   
   gem 'carrierwave'
-  gem 'cloudinary'
 end
+  gem 'cloudinary'
 
