@@ -1,10 +1,10 @@
 <h1>
-    <% if @user.avatar %> 
-                    <%= image_tag(@user.avatar.url, alt: @user.name, class: "gravatar") %>
-                <% else %>
-                    <%= gravatar_for @user %>
-                <% end %>
-                <%= @user.name %>
+      <% if @user.avatar? %> 
+          <%= image_tag(@user.avatar.url, alt: @user.name, class: "gravatar") %>
+          <% else %>
+          <%= gravatar_for @user %>
+      <% end %>
+    <%= @user.name %>
 </h1>
 
 <div class="panel panel-default">
@@ -15,10 +15,9 @@
     <div class="panel-body">
         <% @following_users.each do |following_user| %>
         <div>
-        <span class="label label-info"><%= following_user.name %></span>
-        <%= gravatar_for (following_user) %>
-        
-        (<%= link_to "following_user" , followings_user_path(following_user) %>)
+            <span class="label label-info"><%= following_user.name %></span>
+            <%= gravatar_for (following_user) %>
+            (<%= link_to "following_user" , followings_user_path(following_user) %>)
         </div>
         <% end %>
     </div>
